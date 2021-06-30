@@ -1,4 +1,6 @@
-async function FetchPokemon(pokemonID) {
+const form = document.querySelector("form");
+
+async function fetchPokemon(pokemonID) {
     const url = `http://pokeapi.co/api/v2/pokemon/${pokemonID}`
 
     try {
@@ -11,14 +13,26 @@ async function FetchPokemon(pokemonID) {
         const image = document.querySelector('img');
 
         title.innerHTML = `${pokemon.name}`
-        info.innerHTML = `Weight: ${pokemon.weight} <br> Height: ${pokemon.height}`
-        image.setAttribute('src', pokemon.sprites.front_shiny)
+        info.innerHTML = `<strong>Weight: </strong> ${pokemon.weight} <br><br> <strong>Height: </strong> ${pokemon.height}`
+        image.setAttribute('src', pokemon.sprites.front_default)
 
-    } catch (err) {
-        console.log(err.message)
+    } catch {
+        console.log("Pokemon inexistente com esse ID");
     }
 
 
 }
 
-FetchPokemon(37)
+function submitPokemon() {
+    event.preventDefault();
+
+    const input = document.querySelector("#search-input").value;
+    const submit = document.querySelector("button");
+
+    if (input) {
+        fetchPokemon(input);
+    } else {
+        alert("White field")
+    }
+
+}

@@ -22,12 +22,12 @@ body {
     padding: 16px;
     background-color: #343A40;
     border-radius: 7px;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .4);
 }
 
 section {
     display: flex;
-    align-items: center;
-}
+    align-items: center;}
 
 header {
     width: 100%;
@@ -46,4 +46,56 @@ img {
 .image {
     display: flex;
     justify-content: flex-end;
+}
+
+.search {
+    position: absolute;
+    top: calc(50% - 180px);
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.search form{
+    display: flex;
+    align-items: center;
+}
+
+#search-input {
+    height: 30px;
+    padding: 8px;
+    border: none;
+    border-radius: 7px;
+    outline: none;
+    margin-right: 5px;
+    transition: .3s all;
+    -moz-appearance:textfield;
+}
+
+#search-input:focus {
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .4)
+}
+
+#search-input::-webkit-outer-spin-button,
+#search-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+button {
+    width: 60px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    outline: none;
+    border: none;
+    border-radius: 7px;
+    padding: 8px;
+    transition: .1s all;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: #343A40;
+    color: white;
 }
